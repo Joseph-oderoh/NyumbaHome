@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container-fluid hdz mt-5 ">
+
+    <div class="row">
+        {% for hood in all_homes %}
+        <div class="col-md-8 mb-5">
+            <div class="card  crd">
+                <img src="{{ nyumbani.photo.url }}" class="card-img-top img-fluid" alt="{{ nyumbani.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ nyumbani.name }}  ({{nyumbani.location}}) </h5>
+                    <p class="card-text"><strong class="text-info">Description| </strong>{{nyumbani.description}}</p>
+                    </h5>
+                   
+                </div>
+            </div>
+        </div>
+        
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

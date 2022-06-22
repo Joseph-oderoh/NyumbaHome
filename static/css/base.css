@@ -1,3 +1,32 @@
 .bgreg{
     background-color: wheat;
 }
+
+body{
+    background-image: url('https://cf.bstatic.com/xdata/images/hotel/max1024x768/339245722.jpg?k=2ea91ef4147f156f12d48c97085e83b7628d9b394525e44981cc65f74c9114a4&o=&hp=1');
+    background-size: cover;
+    color: black;
+}
+
+.bgr{
+    margin-top: 50px;
+    
+    border: 2px solid blue;
+    border-radius: 45px;
+    width: fit-content;
+    padding: 30px;
+    outline: none;
+    color: white;
+    font-family: poppins;
+    background-color: rgba(0, 0, 0, 0.651);
+}
+
+.bgr:hover{
+    background-color: rgba(255, 255, 255, 0.822);
+    color: black;
+    
+    
+}
+nav{
+    font-family: serif;
+}
