@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'cloudinary',
     'crispy_forms',
+    # 'registration',
     'homez.apps.HomezConfig',
     'django.contrib.admin',
     'django.contrib.auth',
