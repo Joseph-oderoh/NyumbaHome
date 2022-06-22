@@ -49,3 +49,52 @@ class Profile(models.Model):
     @receiver(post_save, sender=User)
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
+
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE,  null=True)
+    image = CloudinaryField('image', blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    content=models.TextField(null=True)
+    
+    def __str__(self):
+        return (self.image)
+    def save_comment(self):
+        self.save()
+
+    # update comments
+    def update_comment(self, name):
+        self.name = name
+        self.save()
+
+     # delete comments from database
+    def delete_comments(self):
+        self.delete()
+class Likes(models.Model):
+    nyumbani = models.ForeignKey(Nyumbani,related_name='like_count', null=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.image
+    def save_likes(self):
+        self.save()
+
+    # update like
+    def update_likes(self, name):
+        self.name = name
+ 
+     # delete like from database
+    def delete_likes(self):
+        self.delete()
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['user', 'nyumbani'], name="unique_like"),
+        ]
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model=Comment
+        fields=['content']
+        widgets= {
+            'content':forms.Textarea(attrs={'rows':2,})
+        }
+        

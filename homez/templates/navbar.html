@@ -1,15 +1,17 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="{% url 'landing'%}">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       {% if user.is_authenticated %}
       <div class="navbar-nav">
-        <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-link" href="#">Nyumbani</a>
-        <a class="nav-link" href="#">Profile</a>
-        <a class="nav-link" href="#">LOgout</a>
+        <a class="nav-link active" href="{% url 'landing'%}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'nyumbani'%}">Nyumbani</a>
+        <a class="nav-link"  href="{% url 'profile' user.username %}">Profile</a>
+        <a class="nav-link" href="{% url 'edit-profile' user.username %}">Edit_Profile</a>
+        <a href="{% url 'new-home' %}" class="btn btn-sm outline-btn-info mb-2 nav-link"> New House</a>
+        <a class="nav-link" href="/logout">Logout</a>
       </div>
       {% else %}
      
